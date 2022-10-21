@@ -27,32 +27,28 @@
 
   <div class="start-game">
     <div class="start-game__text">
-      —обери все подарки и возвращайс€ к Єлочке, чтобы узнать, какой ты кот в следующем году
+      —обери все подарки, затем положи их Єлочке, чтобы узнать, какой ты котик в следующем году
     </div>
 
     <button class="start-game__btn">Ok</button>
   </div>
 
   <div class="end-game">
-    <div id="cat-result" class="result">
-      
+    <div class="end-game__text">
+      ¬ следующем годы ты такой прекрасный котик!
     </div>
-
+    <div id="cat-result" class="result"></div>
     <button class="end-game__btn">Ok</button>
   </div>
 
 
   <a-scene background="color: #fff" physics>
     <a-assets>
-      <img id="skyTexture"
-        src="/assets/imgs/sky.png" />
-      <img id="groundTexture"
-        src="/assets/imgs/snow.jpg" />
-
-      <a-asset-item id="giftModel" src="/assets/models/present_v2/scene.gltf"></a-asset-item>
+      <img id="skyTexture" src="/assets/imgs/sky.png" />
+      <img id="groundTexture" src="/assets/imgs/snow.jpg" />
 
       <a-asset-item id="giftModelAit" src="/assets/models/ait-gift.glb"></a-asset-item>
-
+      <a-asset-item id="admModelAit" src="/assets/models/model_products/adm.gltf"></a-asset-item>
       <a-asset-item id="treeModelAit" src="/assets/models/cute_christmas_frog/scene.gltf"></a-asset-item>
 
       <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
@@ -126,31 +122,33 @@
       static-body></a-box>
 
     <!-- Models -->
-
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-152 5 122" rotation="0 -180 0" id="gift1"
+    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-152 2 122" rotation="0 -180 0" id="gift1"
       visible="true"
       animation="property: rotation; to: 0 -180 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="4 4 4" position="-114 5 -150" rotation="0 0 0" id="gift2" visible="true"
+    <a-entity gltf-model="#giftModelAit" scale="4 4 4" position="-114 2 -150" rotation="0 0 0" id="gift2" visible="true"
       animation="property: position; to: -114 2 -150; loop: true; dur: 2000; easing: linear; dir: alternate;">
     </a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-28 5 64" rotation="0 -180 0" id="gift3" visible="true"
+    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-28 2 64" rotation="0 -180 0" id="gift3" visible="true"
       animation="property: position; to: -28 2 64; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="28 5 64" rotation="0 -270 0" id="gift4" visible="true"
+    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="28 2 64" rotation="0 -270 0" id="gift4" visible="true"
       animation="property: rotation; to: 0 -270 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="157 5 130" rotation="0 -180 0" id="gift5"
+    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="153 2 130" rotation="0 -180 0" id="gift5"
       visible="true"
       animation="property: rotation; to: 0 -180 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="140 5 -174" rotation="0 -90 0" id="gift6"
+    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="140 2 -174" rotation="0 -90 0" id="gift6"
       visible="true"
       animation="property: position; to: 140 2 -174; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
+    <!-- Tree -->
+
     <a-entity id="tree" gltf-model="#treeModelAit" scale="3 3 3" rotation="0 45 0" position="-14 -53 -40" id="tree"
       visible="true"></a-entity>
+
 
     <!-- Lights -->
 

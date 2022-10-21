@@ -9,7 +9,7 @@ document.addEventListener("keydown", function (e) {
 
     if (e.code === 'KeyW' && e.shiftKey || e.code === 'KeyA' && e.shiftKey || e.code === 'KeyS' && e.shiftKey || e.code === 'KeyD' && e.shiftKey) {
         let wasdControls = camera.getAttribute('wasd-controls')
-        wasdControls.acceleration = 320
+        wasdControls.acceleration = 420
         audioStep.playbackRate = 1.5
         audioStep.play()
     }

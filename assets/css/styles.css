@@ -69,7 +69,7 @@ button {
   z-index: 100;
   margin: auto;
   max-width: 600px;
-  max-height: 180px;
+  max-height: 210px;
   padding: 60px;
   text-align: center;
   font-family: 'Ubuntu';
@@ -80,7 +80,8 @@ button {
   align-items: center;
 }
 
-.start-game__text {
+.start-game__text,
+.end-game__text {
   font-size: 33px;
   font-weight: 300;
   line-height: 40px;
@@ -100,28 +101,33 @@ button {
 
 .end-game {
   position: absolute;
-  background: rgba(29, 62, 94, 0.5);
-  color: #FFFFFF;
-  top: 0;
-  bottom: 0;
+  top: 10%;
   left: 0;
   right: 0;
-  z-index: 100;
-  margin: auto;
-  max-width: 400px;
-  max-height: 500px;
+  margin: 0 auto;
+  background: rgba(29, 62, 94, 0.5);
+  color: #FFFFFF;
   padding: 60px;
   text-align: center;
   font-family: 'Ubuntu';
   border-radius: 15px;
-
+  z-index: 100;
+  max-width: 550px;
   display: none;
   flex-direction: column;
   align-items: center;
 }
 
-.end-game img {
-  max-width: 300px;
-  height: auto;
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 40px;
 }
 
+.result img {
+  height: auto;
+  margin-top: 0%;
+  width: 500px;
+}

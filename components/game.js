@@ -28,24 +28,19 @@ function hideGift(e) {
 function setVisible(gift, cameraPos, x1, x2, z1, z2) {
     let giftPosition = gift.getAttribute('position')
     if (giftPosition.z + z1 >= cameraPos.z && giftPosition.z + z2 <= cameraPos.z && giftPosition.x + x1 >= cameraPos.x && giftPosition.x + x2 <= cameraPos.x) {
-        if (gift.getAttribute('visible')) {
+        if (gift.getAttribute('scale').x == 3 && i != 1) {
             i = 0
+            magicSound.play()
             counterPoints++
             takenGifts.innerHTML = counterPoints
         }
 
-        gift.setAttribute('visible', 'false')
-
-        playMagicSound()
+        gift.setAttribute('animation', { 'property': 'scale', "to": { x: 0, y: 0, z: 0 }, "loop": false, "dur": 200 })
+        /* gift.setAttribute('animation', { 'property': 'visible', 'from': true,"to": false, "loop": false, "dur": 100 }) */
+/*         setTimeout(gift.setAttribute('visible', 'false'), 2000)
+ */
+        i++
     }
-}
-
-function playMagicSound() {
-    if (i === 0) {
-        magicSound.play()
-    }
-
-    i++
 }
 
 let startGameWindow = document.getElementsByClassName('start-game')[0]
@@ -62,7 +57,7 @@ function giveGift(cameraPos) {
 
     let catImg = document.getElementsByClassName('end-game')[0]
 
-    if (treePosition.z + 40 >= cameraPos.z && treePosition.z - 40 <= cameraPos.z && treePosition.x + 40 >= cameraPos.x && treePosition.x - 40 <= cameraPos.x && takenGifts.innerText == 6) {
+    if (treePosition.z + 50 >= cameraPos.z && treePosition.z - 50 <= cameraPos.z && treePosition.x + 50 >= cameraPos.x && treePosition.x - 50 <= cameraPos.x && takenGifts.innerText == 6) {
         catImg.classList.add('visible')
     }
 }
