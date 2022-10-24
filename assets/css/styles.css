@@ -131,3 +131,54 @@ button {
   margin-top: 0%;
   width: 500px;
 }
+
+.a-enter-vr {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .start-game {
+    max-width: 400px;
+    max-height: 250px;
+  }
+
+  .end-game {
+    max-width: 350px;
+  }
+
+  .result img {
+    width: 415px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .start-game {
+    max-width: 300px;
+    max-height: 350px;
+  }
+
+  .end-game {
+    max-width: 256px;
+  }
+
+  .result img {
+    width: 341px;
+  }
+}
+
+
+@media screen and (max-width: 410px) {
+  .start-game {
+    max-width: 280px;
+    max-height: 400px;
+    padding: 60px 20px;
+  }
+
+  .result img {
+    width: 255px;
+  }
+
+  .end-game {
+    max-width: 182px;
+  }
+}

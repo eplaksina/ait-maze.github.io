@@ -35,9 +35,8 @@ function setVisible(gift, cameraPos, x1, x2, z1, z2) {
             takenGifts.innerHTML = counterPoints
         }
 
-        gift.setAttribute('animation', { 'property': 'scale', "to": { x: 0, y: 0, z: 0 }, "loop": false, "dur": 200 })
-        /* gift.setAttribute('animation', { 'property': 'visible', 'from': true,"to": false, "loop": false, "dur": 100 }) */
-/*         setTimeout(gift.setAttribute('visible', 'false'), 2000)
+        gift.setAttribute('animation', { 'property': 'scale', "to": { x: 0.001, y: 0.001, z: 0.001 }, "loop": false, "dur": 200 })
+/*         setTimeout(gift.setAttribute('visible', false), 200)
  */
         i++
     }

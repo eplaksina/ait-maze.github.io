@@ -57,9 +57,13 @@
     </a-assets>
 
     <!--Camera-->
-    <a-entity id="rig" movement-controls kinematic-body position="0 0 330" wasd-controls="acceleration: 220"
+    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330"
       look-controls="pointerLockEnabled: true">
-      <a-entity id="camera" camera position="0 0 0" camera-listener></a-entity>
+      <a-entity id="camera" camera position="0 0 0" camera-listener>
+        <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat; opacity: 0.5" visible="false">
+        </a-entity>
+      </a-entity>
     </a-entity>
 
     <a-sky id="background" src="#skyTexture" theta-length="90" rotation="0 -180 0" position="0 -35 0" radius="350">
