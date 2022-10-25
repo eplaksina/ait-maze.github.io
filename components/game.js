@@ -60,7 +60,7 @@ function giveGift(cameraPos) {
     let treeGift5 = document.getElementById('treeGift5')
     let treeGift6 = document.getElementById('treeGift6')
 
-    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 0) {
+    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 6) {
 
         treeGift4.setAttribute('animation', { 'property': 'scale', "to": { x: 2.2, y: 2.2, z: 2.2 }, "loop": false, "dur": 200 })
 
