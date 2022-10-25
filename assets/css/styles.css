@@ -127,7 +127,7 @@ button {
 }
 
 .result img {
-  height: auto;
+  max-height: 500px;
   margin-top: 0%;
   width: 500px;
 }
