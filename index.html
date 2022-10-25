@@ -3,14 +3,13 @@
 
 <head>
   <title>AIT-MAZE</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
   <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script
     src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v3.2.0/dist/aframe-physics-system.min.js"></script>
   <script
-    src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script>
   <link rel="stylesheet" href="https://eplaksina.github.io/ait-maze.github.io/assets/css/styles.css">
 </head>
 
@@ -27,7 +26,7 @@
 
   <div class="start-game">
     <div class="start-game__text">
-      РЎРѕР±РµСЂРё РІСЃРµ РїРѕРґР°СЂРєРё, Р·Р°С‚РµРј РїРѕР»РѕР¶Рё РёС… С‘Р»РѕС‡РєРµ, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ, РєР°РєРѕР№ С‚С‹ РєРѕС‚РёРє РІ СЃР»РµРґСѓСЋС‰РµРј РіРѕРґСѓ
+      Собери все подарки, затем положи их ёлочке, чтобы узнать, какой ты котик в следующем году
     </div>
 
     <button class="start-game__btn">Ok</button>
@@ -35,21 +34,22 @@
 
   <div class="end-game">
     <div class="end-game__text">
-      Р’ СЃР»РµРґСѓСЋС‰РµРј РіРѕРґС‹ С‚С‹ С‚Р°РєРѕР№ РїСЂРµРєСЂР°СЃРЅС‹Р№ РєРѕС‚РёРє!
+      В следующем годы ты такой прекрасный котик!
     </div>
     <div id="cat-result" class="result"></div>
     <button class="end-game__btn">Ok</button>
   </div>
 
 
-  <a-scene background="color: #fff" physics>
+  <a-scene background="color: #fff" physics renderer="colorManagement: true;">
     <a-assets>
       <img id="skyTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
       <img id="groundTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
 
       <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb"></a-asset-item>
       <a-asset-item id="admModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/model_products/adm.gltf"></a-asset-item>
-      <a-asset-item id="treeModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/cute_christmas_frog/scene.gltf"></a-asset-item>
+      <a-asset-item id="treeModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
+      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb"></a-asset-item>
 
       <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
       <a-mixin id="wallColor" material="color: #ebf3ff; src: #groundTexture"></a-mixin>
@@ -57,11 +57,12 @@
     </a-assets>
 
     <!--Camera-->
-    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330"
-      >
-      <a-entity id="camera" camera position="0 0 0" camera-listener look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
+    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330">
+      <a-entity id="camera" camera position="0 0 0" camera-listener
+        look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat; opacity: 0.5" visible="false">
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: white; shader: flat; opacity: 0.5" visible="false">
         </a-entity>
       </a-entity>
     </a-entity>
@@ -149,16 +150,23 @@
       animation="property: position; to: 140 2 -174; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
 
     <!-- Tree -->
+    <a-entity id="tree" gltf-model="#treeModelAit" scale="500 380 500" rotation="0 90 0"
+      position="-17.306 -42.918 -38.872" id="tree"></a-entity>
+    <a-entity id="star" gltf-model="#treeStar" scale="5 5 5" rotation="0 45 0" position="-17.306 37.470 -38.872"
+      id="tree"></a-entity>
 
-    <a-entity id="tree" gltf-model="#treeModelAit" scale="3 3 3" rotation="0 45 0" position="-14 -53 -40" id="tree"
-      visible="true"></a-entity>
+    <a-entity gltf-model="#giftModelAit" scale="1.5 1.5 1.5" position="0.364 -26.120 -27.094" rotation="-25 -25 15"
+      id="treeGift1"></a-entity>
 
-
+    <a-entity gltf-model="#giftModelAit" scale="1.800 1.800 1.800" position="-3.851 -24.950 -20.031"
+      rotation="-25 -30 15" id="treeGift2"></a-entity>
     <!-- Lights -->
 
     <a-light color="#ffffff" intensity="0.3" position="169 48.503 -430.418" type="directional"></a-light>
+    <a-light color="#ffffff" intensity="0.2" position="-412.131 48.503 88.990" type="directional"></a-light>
 
     <a-light color="#ffffff" intensity="1.05" position="0 0 0" type="ambient"></a-light>
+
   </a-scene>
 
   <audio id="steps" style="display:none">
