@@ -59,8 +59,17 @@ function giveGift(cameraPos) {
     let treeGift4 = document.getElementById('treeGift4')
     let treeGift5 = document.getElementById('treeGift5')
     let treeGift6 = document.getElementById('treeGift6')
+    let magic = document.getElementById('magic2')
+    console.log(takenGifts.innerText)
 
-    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 6) {
+    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 0) {
+
+        console.log(i)
+        if (i != 1 && treeGift4.getAttribute('scale').x < 0.01) {
+            console.log(i + ' 1')
+            i = 0
+            magic.play()
+        }
 
         treeGift4.setAttribute('animation', { 'property': 'scale', "to": { x: 2.2, y: 2.2, z: 2.2 }, "loop": false, "dur": 200 })
 
@@ -71,7 +80,8 @@ function giveGift(cameraPos) {
         setTimeout(() => { treeGift6.setAttribute('animation', { 'property': 'scale', "to": { x: 1.8, y: 1.8, z: 1.8 }, "loop": false, "dur": 200 }) }, 1000)
 
         setTimeout(() => { catImg.classList.add('visible') }, 1200)
-        
+
+        i++
     }
 }
 
