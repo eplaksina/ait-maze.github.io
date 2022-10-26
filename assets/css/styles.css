@@ -148,6 +148,7 @@ button {
 
   .result img {
     width: 415px;
+    
   }
 }
 
@@ -176,9 +177,16 @@ button {
 
   .result img {
     width: 255px;
+    max-height: 230px;
   }
 
   .end-game {
     max-width: 182px;
+    margin-top: 20px;
+    top: 9%;
+  }
+
+  .end-game__btn {
+    margin-top: 32px;
   }
 }
