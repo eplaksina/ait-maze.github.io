@@ -30,8 +30,8 @@ function setVisible(gift, cameraPos, x1, x2, z1, z2) {
     if (giftPosition.z + z1 >= cameraPos.z && giftPosition.z + z2 <= cameraPos.z && giftPosition.x + x1 >= cameraPos.x && giftPosition.x + x2 <= cameraPos.x) {
         if ((gift.getAttribute('scale').x == 3 || gift.getAttribute('scale').x == 4) && i != 1) {
             i = 0            
-/*             audioStep.pause()
- */            magicSound.play()
+            audioStep.pause()
+            magicSound.play()
             counterPoints++
             takenGifts.innerHTML = counterPoints
         }
@@ -66,6 +66,7 @@ function giveGift(cameraPos) {
 
         if (i != 1 && treeGift4.getAttribute('scale').x < 0.01) {
             i = 0
+            audioStep.pause()
             magic.play()
         }
 
