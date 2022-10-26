@@ -152,10 +152,21 @@ button {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .result img {
+    max-width: 359px;
+    max-height: 275px;
+  }
+
+  .end-game {
+    padding: 40px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .start-game {
     max-width: 300px;
-    max-height: 350px;
+    max-height: 242px;
   }
 
   .end-game {
