@@ -29,7 +29,8 @@ function setVisible(gift, cameraPos, x1, x2, z1, z2) {
     let giftPosition = gift.getAttribute('position')
     if (giftPosition.z + z1 >= cameraPos.z && giftPosition.z + z2 <= cameraPos.z && giftPosition.x + x1 >= cameraPos.x && giftPosition.x + x2 <= cameraPos.x) {
         if ((gift.getAttribute('scale').x == 3 || gift.getAttribute('scale').x == 4) && i != 1) {
-            i = 0
+            i = 0            
+            audioStep.pause()
             magicSound.play()
             counterPoints++
             takenGifts.innerHTML = counterPoints
@@ -60,14 +61,12 @@ function giveGift(cameraPos) {
     let treeGift5 = document.getElementById('treeGift5')
     let treeGift6 = document.getElementById('treeGift6')
     let magic = document.getElementById('magic2')
-    console.log(takenGifts.innerText)
 
     if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 0) {
 
-        console.log(i)
         if (i != 1 && treeGift4.getAttribute('scale').x < 0.01) {
-            console.log(i + ' 1')
             i = 0
+            audioStep.pause()
             magic.play()
         }
 
