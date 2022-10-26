@@ -62,7 +62,7 @@ function giveGift(cameraPos) {
     let treeGift6 = document.getElementById('treeGift6')
     let magic = document.getElementById('magic2')
 
-    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 0) {
+    if (treePosition.z + 55 >= cameraPos.z && treePosition.z - 55 <= cameraPos.z && treePosition.x + 55 >= cameraPos.x && treePosition.x - 55 <= cameraPos.x && takenGifts.innerText == 6) {
 
         if (i != 1 && treeGift4.getAttribute('scale').x < 0.01) {
             i = 0

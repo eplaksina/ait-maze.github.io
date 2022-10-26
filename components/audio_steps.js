@@ -37,6 +37,23 @@ function mouseUp() {
     })
 }
 
+/* function touchStart() {
+    window.addEventListener('touchstart', function () {
+        let movementControls = cameraRig.getAttribute('movement-controls')
+        movementControls.speed = 1.5
+        audioStep.playbackRate = 1.5
+        audioStep.play()
+    })
+}
+
+function touchEnd() {
+    window.addEventListener('touchend', function () {
+        let movementControls = cameraRig.getAttribute('movement-controls')
+        movementControls.speed = 0.8
+        audioStep.pause()
+    })
+} */
+
 function keyDown() {
     document.addEventListener("keydown", function (e) {
         if (e.key === 'w' || e.key === 's' || e.key === 'a' || e.key === 'd' || e.key === 'ArrowUp' || e.key === 'ArrowRight' || e.key == 'ArrowDown' || e.key == 'ArrowLeft' || e.key === 'w' && e.key === 'Shift' || e.key === 'a' && e.key === 'Shift' || e.key === 's' && e.key === 'Shift' || e.key === 'd' && e.key === 'Shift') {
@@ -66,3 +83,5 @@ mouseDown()
 mouseUp()
 keyDown()
 keyUp()
+touchStart()
+touchEnd()

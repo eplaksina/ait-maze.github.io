@@ -43,17 +43,16 @@
 
   <a-scene background="color: #fff" physics renderer="colorManagement: true;">
     <a-assets>
-      <img id="skyTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
-      <img id="groundTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
+      <img crossorigin="anonymous" id="skyTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
+      <img crossorigin="anonymous" id="groundTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
 
-      <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb">
-      </a-asset-item>
-      <a-asset-item id="admModelAit"
-        src="https://eplaksina.github.io/ait-maze.github.io/assets/models/model_products/adm.gltf"></a-asset-item>
-      <a-asset-item id="treeModelAit"
-        src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
-      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb">
-      </a-asset-item>
+      <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb"></a-asset-item>
+      <a-asset-item id="treeModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
+      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb"></a-asset-item>
+
+<!--       <audio crossorigin="anonymous" id="magicGiftSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic.wav"></audio>
+      <audio crossorigin="anonymous" id="magicTreeGiftSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic2.mp3"></audio>
+      <audio crossorigin="anonymous" id="stepsSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/steps.mp3"></audio> -->
 
       <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
       <a-mixin id="wallColor" material="color: #ebf3ff; src: #groundTexture"></a-mixin>
@@ -182,6 +181,12 @@
     <a-light color="#ffffff" intensity="0.3" position="169 48.503 -430.418" type="directional"></a-light>
 
     <a-light color="#ffffff" intensity="1.05" position="0 0 0" type="ambient"></a-light>
+
+
+    <!-- Sounds -->
+    <!-- <a-entity id="magic" sound="src: #magicGiftSound;"></a-entity>
+    <a-entity id="magic2" sound="src: #magicTreeGiftSound;"></a-entity>
+    <a-entity id="steps" sound="src: #stepsSound; loop: true"></a-entity> -->
 
   </a-scene>
 
