@@ -1,4 +1,4 @@
-let camera = document.getElementById('rig')
+let cameraRig = document.getElementById('rig')
 let gift1 = document.getElementById('gift1')
 let gift2 = document.getElementById('gift2')
 let gift3 = document.getElementById('gift3')
@@ -11,10 +11,10 @@ var takenGifts = document.getElementById('takeGifts')
 var magicSound = document.getElementById('magic')
 var i = 0
 var counterPoints = 0
-camera.addEventListener('componentchanged', hideGift)
+cameraRig.addEventListener('componentchanged', hideGift)
 
 function hideGift(e) {
-    var cameraPos = camera.getAttribute('position')
+    var cameraPos = cameraRig.getAttribute('position')
 
     setVisible(gift1, cameraPos, 20, -22, 20, -20)
     setVisible(gift2, cameraPos, 20, -20, +20, -20)
@@ -95,6 +95,28 @@ restart.addEventListener('click', function () {
     window.location.reload()
 })
 
+
+let windowWidth = window.innerWidth
+let camera = document.getElementById('camera')
+
+window.onresize = () => {
+    windowWidth = window.innerWidth
+    changeCameraControls()
+}
+
+function changeCameraControls() {
+    if(windowWidth <= 1000) {
+        console.log(1)
+        camera.removeAttribute('look-controls')
+        camera.setAttribute('touch-look-controls')
+    } else {
+        console.log(2)
+        camera.removeAttribute('touch-look-controls')
+        camera.setAttribute('look-controls')
+    }
+}
+
+changeCameraControls()
 
 
 

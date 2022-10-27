@@ -20,7 +20,7 @@ function mouseDown() {
     window.onmousedown = function () {
         if (windowWidth <= 1000) {
             let movementControls = cameraRig.getAttribute('movement-controls')
-            movementControls.speed = 1.5
+            movementControls.speed = 3.5
             audioStep.playbackRate = 1.5
             audioStep.play()
         }
@@ -37,10 +37,10 @@ function mouseUp() {
     })
 }
 
-/* function touchStart() {
+function touchStart() {
     window.addEventListener('touchstart', function () {
         let movementControls = cameraRig.getAttribute('movement-controls')
-        movementControls.speed = 1.5
+        movementControls.speed = 2.5
         audioStep.playbackRate = 1.5
         audioStep.play()
     })
@@ -52,7 +52,7 @@ function touchEnd() {
         movementControls.speed = 0.8
         audioStep.pause()
     })
-} */
+}
 
 function keyDown() {
     document.addEventListener("keydown", function (e) {
@@ -61,9 +61,9 @@ function keyDown() {
             audioStep.play()
         }
 
-        if (e.code === 'KeyW' && e.shiftKey || e.code === 'KeyA' && e.shiftKey || e.code === 'KeyS' && e.shiftKey || e.code === 'KeyD' && e.shiftKey) {
+        if (e.shiftKey) {
             let movementControls = cameraRig.getAttribute('movement-controls')
-            movementControls.speed = 1.5
+            movementControls.speed = 1.8
             audioStep.playbackRate = 1.5
             audioStep.play()
         }

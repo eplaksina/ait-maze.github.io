@@ -166,7 +166,7 @@ button {
 @media screen and (max-width: 500px) {
   .start-game {
     max-width: 300px;
-    max-height: 242px;
+    max-height: 320px;
   }
 
   .end-game {
@@ -183,7 +183,7 @@ button {
 @media screen and (max-width: 410px) {
   .start-game {
     max-width: 280px;
-    max-height: 400px;
+    max-height: 350px;
     padding: 60px 20px;
   }
 
