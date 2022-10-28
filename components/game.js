@@ -44,7 +44,6 @@ function setVisible(gift, cameraPos, x1, x2, z1, z2) {
 let startGameWindow = document.getElementsByClassName('start-game')[0]
 let startGameBtn = document.getElementsByClassName('start-game__btn')[0]
 
-console.log(document.getElementsByClassName('start-game__btn') + " 5")
 
 startGameBtn.addEventListener('click', function () {
     startGameWindow.classList.add("hidden")
@@ -108,12 +107,15 @@ window.onresize = () => {
 function changeCameraControls() {
     if(windoWidth <= 1000) {
         console.log(1)
-        camera.removeAttribute('look-controls')
-        camera.setAttribute('touch-look-controls')
+        rigCamera.removeAttribute('look-controls')
+        rigCamera.setAttribute('touch-look-controls', '')
+/*         console.log(camera)
+        console.log(rigCamera) */
+
     } else {
         console.log(2)
-        camera.removeAttribute('touch-look-controls')
-        camera.setAttribute('look-controls')
+        rigCamera.removeAttribute('touch-look-controls')
+        rigCamera.setAttribute('look-controls')
     }
 }
 
