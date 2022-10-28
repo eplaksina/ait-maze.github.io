@@ -106,16 +106,12 @@ window.onresize = () => {
 
 function changeCameraControls() {
     if(windoWidth <= 1000) {
-        console.log(1)
         rigCamera.removeAttribute('look-controls')
         rigCamera.setAttribute('touch-look-controls', '')
-/*         console.log(camera)
-        console.log(rigCamera) */
 
     } else {
-        console.log(2)
         rigCamera.removeAttribute('touch-look-controls')
-        rigCamera.setAttribute('look-controls')
+        rigCamera.setAttribute('look-controls', 'pointerLockEnabled: true;')
     }
 }
 

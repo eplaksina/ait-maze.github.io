@@ -38,16 +38,16 @@ function mouseUp() {
 }
 
 function touchStart() {
-    window.addEventListener('touchstart', function () {
+    document.addEventListener('touchstart', function () {
         let movementControls = cameraRig.getAttribute('movement-controls')
-        movementControls.speed = 2.5
+        movementControls.speed = 3.5
         audioStep.playbackRate = 1.5
         audioStep.play()
     })
 }
 
 function touchEnd() {
-    window.addEventListener('touchend', function () {
+    document.addEventListener('touchend', function () {
         let movementControls = cameraRig.getAttribute('movement-controls')
         movementControls.speed = 0.8
         audioStep.pause()
