@@ -6,10 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v3.2.0/dist/aframe-physics-system.min.js"></script>
-  <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script>
+  <script
+    src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v3.2.0/dist/aframe-physics-system.min.js"></script>
+  <script
+    src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script>
   <script src="/components/touch-look-controls.js"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://eplaksina.github.io/ait-maze.github.io/assets/css/styles.css">
 </head>
 
 <body>
@@ -49,18 +51,14 @@
       <a-asset-item id="treeModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
       <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb"></a-asset-item>
 
-<!--       <audio crossorigin="anonymous" id="magicGiftSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic.wav"></audio>
-      <audio crossorigin="anonymous" id="magicTreeGiftSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic2.mp3"></audio>
-      <audio crossorigin="anonymous" id="stepsSound" src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/steps.mp3"></audio> -->
-
       <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
       <a-mixin id="wallColor" material="color: #ebf3ff; src: #groundTexture"></a-mixin>
       <a-mixin id="spotLightColor" light="color: #405b68; ground-color: #fff; intensity: 0.5; decay: 0.5"></a-mixin>
     </a-assets>
 
     <!--Camera-->
-    <a-entity id="rig" movement-controls="speed: 0.8"  kinematic-body position="0 0 330" >
-      <a-entity id="camera" camera position="0 0 0" camera-listener look-controls="pointerLockEnabled: true">
+    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330" look-controls="pointerLockEnabled: true;">
+      <a-entity id="camera" camera position="0 0 0" camera-listener >
         <a-entity id="cursor" cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
           material="color: white; shader: flat; opacity: 0.5" visible="false">
@@ -179,13 +177,6 @@
     <a-light color="#ffffff" intensity="0.3" position="169 48.503 -430.418" type="directional"></a-light>
 
     <a-light color="#ffffff" intensity="1.05" position="0 0 0" type="ambient"></a-light>
-
-
-    <!-- Sounds -->
-    <!-- <a-entity id="magic" sound="src: #magicGiftSound;"></a-entity>
-    <a-entity id="magic2" sound="src: #magicTreeGiftSound;"></a-entity>
-    <a-entity id="steps" sound="src: #stepsSound; loop: true"></a-entity> -->
-
   </a-scene>
 
   <audio id="steps" style="display:none">

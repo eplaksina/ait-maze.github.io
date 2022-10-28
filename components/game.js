@@ -1,4 +1,4 @@
-let cameraRig = document.getElementById('rig')
+let rigCamera = document.getElementById('rig')
 let gift1 = document.getElementById('gift1')
 let gift2 = document.getElementById('gift2')
 let gift3 = document.getElementById('gift3')
@@ -11,10 +11,10 @@ var takenGifts = document.getElementById('takeGifts')
 var magicSound = document.getElementById('magic')
 var i = 0
 var counterPoints = 0
-cameraRig.addEventListener('componentchanged', hideGift)
+rigCamera.addEventListener('componentchanged', hideGift)
 
 function hideGift(e) {
-    var cameraPos = cameraRig.getAttribute('position')
+    var cameraPos = rigCamera.getAttribute('position')
 
     setVisible(gift1, cameraPos, 20, -22, 20, -20)
     setVisible(gift2, cameraPos, 20, -20, +20, -20)
@@ -44,6 +44,7 @@ function setVisible(gift, cameraPos, x1, x2, z1, z2) {
 let startGameWindow = document.getElementsByClassName('start-game')[0]
 let startGameBtn = document.getElementsByClassName('start-game__btn')[0]
 
+console.log(document.getElementsByClassName('start-game__btn') + " 5")
 
 startGameBtn.addEventListener('click', function () {
     startGameWindow.classList.add("hidden")
@@ -96,16 +97,16 @@ restart.addEventListener('click', function () {
 })
 
 
-let windowWidth = window.innerWidth
+let windoWidth = window.innerWidth
 let camera = document.getElementById('camera')
 
 window.onresize = () => {
-    windowWidth = window.innerWidth
+    windoWidth = window.innerWidth
     changeCameraControls()
 }
 
 function changeCameraControls() {
-    if(windowWidth <= 1000) {
+    if(windoWidth <= 1000) {
         console.log(1)
         camera.removeAttribute('look-controls')
         camera.setAttribute('touch-look-controls')
