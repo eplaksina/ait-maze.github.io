@@ -15,6 +15,20 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__img">
+      <img src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" alt="">
+    </div>
+    <div class="preloader__text">
+      <span>m</span>
+      <span>a</span>
+      <span>z</span>
+      <span>e</span>
+
+    </div>
+  </div>
+
   <div class="header row">
     <!-- points -->
     <div class="header__points row">
@@ -44,12 +58,17 @@
 
   <a-scene background="color: #fff" physics renderer="colorManagement: true;">
     <a-assets>
-      <img crossorigin="anonymous" id="skyTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
-      <img crossorigin="anonymous" id="groundTexture" src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
+      <img crossorigin="anonymous" id="skyTexture"
+        src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
+      <img crossorigin="anonymous" id="groundTexture"
+        src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
 
-      <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb"></a-asset-item>
-      <a-asset-item id="treeModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
-      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb"></a-asset-item>
+      <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb">
+      </a-asset-item>
+      <a-asset-item id="treeModelAit"
+        src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
+      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb">
+      </a-asset-item>
 
       <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
       <a-mixin id="wallColor" material="color: #ebf3ff; src: #groundTexture"></a-mixin>
@@ -57,8 +76,9 @@
     </a-assets>
 
     <!--Camera-->
-    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330" look-controls="pointerLockEnabled: true;">
-      <a-entity id="camera" camera position="0 0 0" camera-listener >
+    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330"
+      look-controls="pointerLockEnabled: true;">
+      <a-entity id="camera" camera position="0 0 0" camera-listener>
         <a-entity id="cursor" cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
           material="color: white; shader: flat; opacity: 0.5" visible="false">
@@ -154,20 +174,20 @@
     <a-entity id="star" gltf-model="#treeStar" scale="5 5 5" rotation="0 45 0" position="-17.306 37.470 -38.872">
     </a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="0.364 -26.120 -27.094" rotation="-25 -25 15"
-      id="treeGift1"></a-entity>
+    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="0.364 -26.120 -27.094"
+      rotation="-25 -25 15" id="treeGift1"></a-entity>
 
     <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-3.851 -24.950 -20.031"
       rotation="-25 -30 15" id="treeGift2"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="3.783 -26.120 -20.583" rotation="-25 -25 10"
-      id="treeGift3"></a-entity>
+    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="3.783 -26.120 -20.583"
+      rotation="-25 -25 10" id="treeGift3"></a-entity>
 
     <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-15.057 -24.950 -16.997"
       rotation="-25 -20 15" id="treeGift4"></a-entity>
 
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-3.963 -26.120 -38.175" rotation="-25 -25 15"
-      id="treeGift5"></a-entity>
+    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-3.963 -26.120 -38.175"
+      rotation="-25 -25 15" id="treeGift5"></a-entity>
 
     <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="6.948 -24.950 -34.341"
       rotation="-25 -20 15" id="treeGift6"></a-entity>
@@ -194,7 +214,7 @@
   <script src="https://eplaksina.github.io/ait-maze.github.io/components/audio_steps.js"></script>
   <script src="https://eplaksina.github.io/ait-maze.github.io/components/game.js"></script>
   <script src="https://eplaksina.github.io/ait-maze.github.io/components/fetch.js"></script>
-
+  <script src="https://eplaksina.github.io/ait-maze.github.io/components/preloader.js"></script>
 </body>
 
 </html>
