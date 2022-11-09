@@ -19,5 +19,14 @@ window.addEventListener('touchmove', function (e) {
   for (let i = 0; i < cylinders.length; i++) {
     cylinders[i].setAttribute('rotation', { x: -60, y: 0, z: -20 + touchtrigger })
   }
+})
+
+
+window.addEventListener('deviceorientation', function (e) {
+  const deviceOrientationTrigger = e.gamma
+  console.log(deviceOrientationTrigger)
+  for (let i = 0; i < cylinders.length; i++) {
+    cylinders[i].setAttribute('rotation', { x: -60, y: 0, z: -20 + deviceOrientationTrigger })
+  }
 
 })
