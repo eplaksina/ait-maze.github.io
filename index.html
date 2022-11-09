@@ -2,219 +2,28 @@
 <html lang="en">
 
 <head>
-  <title>AIT-MAZE</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-  <script
-    src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v3.2.0/dist/aframe-physics-system.min.js"></script>
-  <script
-    src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script>
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/touch-look-controls.js"></script>
-  <link rel="stylesheet" href="https://eplaksina.github.io/ait-maze.github.io/assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/libs/aframe.min.js"></script>
+  <script src="/libs/perlinNoise.js"></script>
+  <script src="/js/noiseCylinder.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Drug</title>
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div class="preloader">
-    <div class="preloader__img">
-      <img src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" alt="">
-    </div>
-    <div class="preloader__text">
-      <span>m</span>
-      <span>a</span>
-      <span>z</span>
-      <span>e</span>
-
-    </div>
-  </div>
-
-  <div class="header row">
-    <!-- points -->
-    <div class="header__points row">
-      <div id="takeGifts" class="header__points-take-gifts">0 </div>
-      <div class="header__points-all-gift"> / 6</div>
-    </div>
-
-    <div class="header__restart-btn">restart</div>
-  </div>
-
-  <div class="start-game">
-    <div class="start-game__text">
-      Собери все подарки, затем положи их ёлочке, чтобы узнать, какой ты котик в следующем году
-    </div>
-
-    <button class="start-game__btn">Ok</button>
-  </div>
-
-  <div class="end-game">
-    <div class="end-game__text">
-      В следующем году ты такой прекрасный котик!
-    </div>
-    <div id="cat-result" class="result"></div>
-    <button class="end-game__btn">Ok</button>
-  </div>
-
-
-  <a-scene background="color: #fff" physics renderer="colorManagement: true;">
-    <a-assets>
-      <img crossorigin="anonymous" id="skyTexture"
-        src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/sky.png" />
-      <img crossorigin="anonymous" id="groundTexture"
-        src="https://eplaksina.github.io/ait-maze.github.io/assets/imgs/snow.jpg" />
-
-      <a-asset-item id="giftModelAit" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/ait-gift.glb">
-      </a-asset-item>
-      <a-asset-item id="treeModelAit"
-        src="https://eplaksina.github.io/ait-maze.github.io/assets/models/chistmas_tree.glb"></a-asset-item>
-      <a-asset-item id="treeStar" src="https://eplaksina.github.io/ait-maze.github.io/assets/models/star.glb">
-      </a-asset-item>
-
-      <a-mixin id="heightWall" geometry="height: 70"></a-mixin>
-      <a-mixin id="wallColor" material="color: #ebf3ff; src: #groundTexture"></a-mixin>
-      <a-mixin id="spotLightColor" light="color: #405b68; ground-color: #fff; intensity: 0.5; decay: 0.5"></a-mixin>
-    </a-assets>
-
-    <!--Camera-->
-    <a-entity id="rig" movement-controls="speed: 0.8" kinematic-body position="0 0 330"
-      look-controls="pointerLockEnabled: true;">
-      <a-entity id="camera" camera position="0 0 0" camera-listener>
-        <a-entity id="cursor" cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-          material="color: white; shader: flat; opacity: 0.5" visible="false">
-        </a-entity>
-      </a-entity>
-    </a-entity>
-
-    <a-sky id="background" src="#skyTexture" theta-length="90" rotation="0 -180 0" position="0 -35 0" radius="350">
-    </a-sky>
-
-    <!--Ground-->
-    <a-box radius="365" transparent="true" opacity="0" height="20" width="800" depth="800" position="0 -10 0"
-      static-body></a-box>
-
-    <a-cylinder id="ground" src="#groundTexture" color="#fff" radius="365" height="70" position="0 -65 0" static-body>
-    </a-cylinder>
-
-    <!--Snow-->
-    <a-entity position="0 50 0" particle-system="preset: snow; particleCount: 250000; positionSpread: 10000 50 10000">
-    </a-entity>
-
-    <!--Maze-->
-    <a-box position="-30 0 200" width="20" mixin="heightWall wallColor" geometry="width: 20; depth: 91;" static-body>
-    </a-box>
-
-    <a-box position="30 0 200" mixin="heightWall wallColor" geometry="width: 20; depth: 91" static-body></a-box>
-
-    <a-box position="-109 0 164.45" rotation="0 -90 0" width="20" mixin="heightWall wallColor"
-      geometry="width: 20; depth: 174;" static-body></a-box>
-
-    <a-box position="-187 0 -30" rotation="0 0 0" width="20" mixin="heightWall wallColor"
-      geometry="width: 20; depth: 370;" static-body></a-box>
-
-    <a-box position="-5.5 0 -205" rotation="0 -90 0" width="20" mixin="heightWall wallColor"
-      geometry="width: 20; depth: 380;" static-body></a-box>
-
-    <a-box position="108 0 164.45" rotation="0 -90 0" width="20" mixin="heightWall wallColor"
-      geometry="width: 20; depth: 174;" static-body></a-box>
-
-    <a-box position="185 0 -21" rotation="0 0 0" width="20" mixin="heightWall wallColor"
-      geometry="width: 20; depth: 388.5;" static-body></a-box>
-
-    <a-box position="0 0 105" mixin="heightWall wallColor" geometry="width: 100; depth: 20" static-body></a-box>
-
-    <a-box position="-60 0 -45" mixin="heightWall wallColor" geometry="width: 20; depth: 320" static-body></a-box>
-
-    <a-box position="60 0 80" mixin="heightWall wallColor" width="20" depth="70" static-body></a-box>
-
-    <a-box position="-120 0 99" mixin="heightWall wallColor" depth="130" width="20" static-body></a-box>
-
-    <a-box position="0 0 70" mixin="heightWall wallColor" geometry="width: 20; depth: 50" static-body></a-box>
-
-    <a-box position="-145 0 -18" rotation="0 90 0" mixin="heightWall wallColor" geometry="width: 20; depth: 70"
-      static-body></a-box>
-
-    <a-box position="-5 0 -80" rotation="0 90 0" mixin="heightWall wallColor" geometry="width: 20; depth: 250"
-      static-body></a-box>
-
-    <a-box position="120 0 98" mixin="heightWall wallColor" geometry="width: 20; depth: 140" static-body></a-box>
-
-    <a-box position="126 0 -20" rotation="0 90 0" mixin="heightWall wallColor" geometry="width: 20; depth: 100"
-      static-body></a-box>
-
-    <a-box position="93 0 -142" rotation="0 90 0" mixin="heightWall wallColor" geometry="width: 20; depth: 170"
-      static-body></a-box>
-
-    <!-- Models -->
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-152 2 122" rotation="0 -180 0" id="gift1"
-      visible="true"
-      animation="property: rotation; to: 0 -180 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="4 4 4" position="-114 2 -150" rotation="0 0 0" id="gift2" visible="true"
-      animation="property: position; to: -114 3 -150; loop: true; dur: 2000; easing: linear; dir: alternate;">
-    </a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="-28 2 64" rotation="0 -180 0" id="gift3" visible="true"
-      animation="property: position; to: -28 3 64; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="28 2 64" rotation="0 -270 0" id="gift4" visible="true"
-      animation="property: rotation; to: 0 -270 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="153 2 130" rotation="0 -180 0" id="gift5"
-      visible="true"
-      animation="property: rotation; to: 0 -180 20; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="3 3 3" position="140 2 -174" rotation="0 -90 0" id="gift6"
-      visible="true"
-      animation="property: position; to: 140 3 -174; loop: true; dur: 2000; easing: linear; dir: alternate;"></a-entity>
-
-    <!-- Tree -->
-    <a-entity id="tree" gltf-model="#treeModelAit" scale="500 380 500" rotation="0 90 0"
-      position="-17.306 -42.918 -38.872"></a-entity>
-    <a-entity id="star" gltf-model="#treeStar" scale="5 5 5" rotation="0 45 0" position="-17.306 37.470 -38.872">
-    </a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="0.364 -26.120 -27.094"
-      rotation="-25 -25 15" id="treeGift1"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-3.851 -24.950 -20.031"
-      rotation="-25 -30 15" id="treeGift2"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="3.783 -26.120 -20.583"
-      rotation="-25 -25 10" id="treeGift3"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-15.057 -24.950 -16.997"
-      rotation="-25 -20 15" id="treeGift4"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="-3.963 -26.120 -38.175"
-      rotation="-25 -25 15" id="treeGift5"></a-entity>
-
-    <a-entity gltf-model="#giftModelAit" scale="0.001 0.001 0.001" position="6.948 -24.950 -34.341"
-      rotation="-25 -20 15" id="treeGift6"></a-entity>
-
-    <!-- Lights -->
-
-    <a-light color="#ffffff" intensity="0.3" position="169 48.503 -430.418" type="directional"></a-light>
-
-    <a-light color="#ffffff" intensity="1.05" position="0 0 0" type="ambient"></a-light>
+  <a-scene background="#fff">
+    <a-sky color="#141414"></a-sky>
+<!--     <a-entity cylinder position="0 0 0" id="cylinder" rotation="-90 0 0"></a-entity>
+ -->
+    <a-entity camera  position="0 0 20"></a-entity>
+    <a-entity light="type: directional; color: #ff0000; ground-color: #000; intensity: 2" position="-30.070 -61.467 7.634"></a-entity>
+    <a-entity light="type: ambient; intensity: 0.7" position="0 0 0"></a-entity>
   </a-scene>
 
-  <audio id="steps" style="display:none">
-    <source src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/steps.mp3" type="audio/mpeg" />
-  </audio>
-
-  <audio id="magic" style="display:none">
-    <source src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic.wav" type="audio/mpeg" />
-  </audio>
-
-  <audio id="magic2" style="display:none">
-    <source src="https://eplaksina.github.io/ait-maze.github.io/assets/sounds/magic2.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/audio_steps.js"></script>
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/game.js"></script>
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/fetch.js"></script>
-  <script src="https://eplaksina.github.io/ait-maze.github.io/components/preloader.js"></script>
+  <script src="/js/createCyl.js"></script>
+  <script src="/js/cylinderMouseMoved.js"></script>
 </body>
 
 </html>
