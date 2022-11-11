@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/libs/aframe.min.js"></script>
+  <script srrc="https://cdn.skypack.dev/dat.gui@0.7.7"></script>
   <script src="/libs/perlinNoise.js"></script>
   <script src="/js/noiseCylinder.js"></script>
+  <script src="/js/colorfulSphere.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Drug</title>
 </head>
@@ -15,15 +17,15 @@
 <body>
   <a-scene background="#fff">
     <a-sky color="#141414"></a-sky>
-<!--     <a-entity cylinder position="0 0 0" id="cylinder" rotation="-90 0 0"></a-entity>
- -->
+    <a-entity colorful-sphere position="0 0 0"></a-entity>
+
     <a-entity camera  position="0 0 20"></a-entity>
     <a-entity light="type: directional; color: #ff0000; ground-color: #000; intensity: 2" position="-30.070 -61.467 7.634"></a-entity>
     <a-entity light="type: ambient; intensity: 0.7" position="0 0 0"></a-entity>
   </a-scene>
 
   <script src="/js/createCyl.js"></script>
-  <script src="/js/cylinderMoved.js"></script>
+  <script src="/js/cylinderMouseMoved.js"></script>
 </body>
 
 </html>
